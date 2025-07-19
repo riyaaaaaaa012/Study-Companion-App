@@ -1,0 +1,18 @@
+<!-- templates/add_topic.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Add Topic to {{ subject.name }}</h2>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.title.label(class="form-label") }}
+    {{ form.title(class="form-control") }}
+  </div>
+  <div class="form-check mb-3">
+    {{ form.is_completed(class="form-check-input") }}
+    {{ form.is_completed.label(class="form-check-label") }}
+  </div>
+  <button type="submit" class="btn btn-primary">Add Topic</button>
+</form>
+{% endblock %}

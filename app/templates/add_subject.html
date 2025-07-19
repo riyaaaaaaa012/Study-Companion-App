@@ -1,0 +1,18 @@
+<!-- templates/add_subject.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Add New Subject</h2>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.name.label(class="form-label") }}
+    {{ form.name(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.exam_date.label(class="form-label") }}
+    {{ form.exam_date(class="form-control") }}
+  </div>
+  <button type="submit" class="btn btn-success">Add Subject</button>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Set Reminder for {{ subject.name }}</h2>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.remind_time.label }}<br>
+      {{ form.remind_time(size=32) }}
+    </p>
+    <p>{{ form.submit() }}</p>
+  </form>
+  <a href="{{ url_for('main.view_subject', subject_id=subject.id) }}">Back to Subject</a>
+{% endblock %}

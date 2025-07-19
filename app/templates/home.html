@@ -1,0 +1,12 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Welcome to Study Companion 📚</h1>
+    <p class="lead">Track your syllabus, log study sessions, and stay motivated!</p>
+    {% if not current_user.is_authenticated %}
+    <a href="{{ url_for('main.register') }}" class="btn btn-primary">Get Started</a>
+    {% endif %}
+</div>
+{% endblock %}

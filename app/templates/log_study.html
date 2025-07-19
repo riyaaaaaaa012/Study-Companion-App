@@ -1,0 +1,22 @@
+<!-- templates/log_study.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>📖 Log Study Session</h2>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.subject.label(class="form-label") }}
+    {{ form.subject(class="form-select") }}
+  </div>
+  <div class="mb-3">
+    {{ form.hours.label(class="form-label") }}
+    {{ form.hours(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.notes.label(class="form-label") }}
+    {{ form.notes(class="form-control", rows="3") }}
+  </div>
+  <button type="submit" class="btn btn-success">Log Session</button>
+</form>
+{% endblock %}

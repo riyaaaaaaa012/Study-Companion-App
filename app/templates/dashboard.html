@@ -1,0 +1,26 @@
+<!-- templates/dashboard.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>📚 Your Dashboard</h2>
+<a href="{{ url_for('main.add_subject') }}" class="btn btn-success mb-3">+ Add Subject</a>
+
+{% if subjects %}
+  <div class="row">
+    {% for subject in subjects %}
+      <div class="col-md-4">
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{ subject.name }}</h5>
+            <p>Exam Date: {{ subject.exam_date.strftime('%Y-%m-%d') }}</p>
+            <p>Total Topics: {{ subject.topics|length }}</p>
+            <a href="{{ url_for('main.view_subject', subject_id=subject.id) }}" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>You haven't added any subjects yet.</p>
+{% endif %}
+{% endblock %}
